@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 class CustomerExceptionHandler {
 
     @ExceptionHandler
-    fun handleCustomerNotFoundException(ex: Exception): ProblemDetail {
+    fun handleCustomerNotFoundException(ex: CustomerNotFoundException): ProblemDetail {
         val message = ex.message.toString()
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message)
     }
